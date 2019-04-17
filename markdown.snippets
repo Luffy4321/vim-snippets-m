@@ -123,8 +123,8 @@ snippet gist-full
 snippet gist-short
 	{% gist ${0:gist_id} %}
 
-snippet img
-	{% img ${1:class} ${2:URL} ${3:width} ${4:height} ${5:title_text} ${0:alt_text} %}
+#snippet img
+#	#{% img ${1:class} ${2:URL} ${3:width} ${4:height} ${5:title_text} ${0:alt_text} %}
 
 snippet youtube
 	{% youtube ${0:video_id} %}
@@ -137,7 +137,22 @@ snippet pullquote
 	${1:text} {" ${2:quote} "} ${0:text}
 	{% endpullquote %}
 
-snippet img_div
+snippet img
 	</div align="center">
 	<img src=${1:URL} width=${3:360}>
 	</div>
+
+snippet t1
+	<span id="$1">
+	# ${1:<!--一级标题-->}
+	</span>
+snippet t2
+	<span id="$1">
+	## ${1:<!--二级标题-->}
+	</span>
+
+snippet t3
+	<span id="$1">
+	### ${1:<!--三级标题-->}
+	</span>
+

@@ -148,74 +148,74 @@ snippet mgdbCreateCollection
 	var dbo = db.db("${1:db}");
 	dbo.createCollection('${2:collection_name}',function(err,res){
 		if(err)throw err;
-		console.log("Collection[${2:collection_name}] created");
+		console.log("Collection[$2] created");
 		${3:}
 	});
 snippet mgdbInsertOne
 	var ${2:obj_name}={${3:key1}:${4:key1_value},${5:key2}:${6:key2_value}};
-	dbo.collection("${1:collection_name}").insertOne(${2:obj_name},function(err,res){
+	dbo.collection("${1:collection_name}").insertOne($2,function(err,res){
 		if(err) throw err;
-		console.log("Collection[${2:collection_name}] insert ${2:obj_name} success");
-		${7:}
+		console.log("Collection[$1] insert $2 success");
+		${0:}
 	});
 snippet mgdbInsertMany
 	var ${2:obj_name}=[
 		{${3:key1}:${4:key1_value},${5:key2}:${6:key2_value}},
 		${7:........}
 	];
-	dbo.collection("${1:collection_name}").insertMany(${2:obj_name},function(err,res){
+	dbo.collection("${1:collection_name}").insertMany($2,function(err,res){
 		if(err) throw err;
-		console.log("Collection[${2:collection_name}] insert count + res.insertedCount);
-		${3:}
+		console.log("Collection[$1] insert count + res.insertedCount);
+		${0:}
 	});
 snippet mgdbFind
 	var ${2:find_obj_str}={${3:key1}:${4:key1_value}};
-	dbo.collection("${1:collection_name}").find(${2:find_obj_str}.toArray(function(err,res){
+	dbo.collection("${1:collection_name}").find($2.toArray(function(err,res){
 		if(err) throw err;
 		console.log(res);
-		${5:}
+		${0:}
 	});
 snippet mgdbUpdateOne
 	var ${2:find_obj_str}={${4:key1}:${5:key1_value}};
 	var ${3:update_obj_str}={$set:{${6:key1}:${7:key1_value}}};
-	dbo.collection("${1:collection_name}").updateOne(${2:find_obj_str},${3:update_obj_str},function(err,res){
+	dbo.collection("${1:collection_name}").updateOne($2,$3,function(err,res){
 		if(err) throw err;
-		console.log("Collection[${2:collection_name}]update ${3:update_obj_name} success");
-		${8:}
+		console.log("Collection[$2]update $3 success");
+		${0:}
 	});
 snippet mgdbUpdateMany
 	var ${2:find_obj_str}={${4:key1}:${5:key1_value}};
 	var ${3:update_obj_str}={$set:{${6:key1}:${7:key1_value}}};
-	dbo.collection("${1:collection_name}").updateMany(${2:find_obj_str},${3:update_obj_str},function(err,res){
+	dbo.collection("${1:collection_name}").updateMany($2,$3,function(err,res){
 		if(err) throw err;
-		console.log("Collection[${2:collection_name}]"+ res.result.nModified+"success");
-		${8:}
+		console.log("Collection[$2]"+ res.result.nModified+"success");
+		${0:}
 	});
 snippet mgdbDeleteOne
 	var ${2:find_obj_str}={${3:key1}:${4:key1_value}};
-	dbo.collection("${1:collection_name}").deleteOne(${2:find_obj_str},function(err,res){
+	dbo.collection("${1:collection_name}").deleteOne($2,function(err,res){
 		if(err) throw err;
-		console.log("Collection[${2:collection_name}]delete ${2:find_obj_str} success");
-		${5:}
+		console.log("Collection[$1]delete $2 success");
+		${0:}
 	});
 snippet mgdbDeleteMany
 	var ${2:find_obj_str}={${3:key1}:${4:key1_value}};
-	dbo.collection("${1:collection_name}").deleteMany(${2:find_obj_str},function(err,res){
+	dbo.collection("${1:collection_name}").deleteMany($1,function(err,res){
 		if(err) throw err;
-		console.log("Collection[${2:collection_name}]"+ res.result.nModified+"success");
-		${5:}
+		console.log("Collection[$2]"+ res.result.nModified+"success");
+		${0:}
 	});
 snippet mgdbDeleteCollectionon
 	dbo.collection("${1:collection_name}".drop(function(err,res){
 		if(err) throw err;
-		if(res)console.log("Collection[${2:collection_name}]");
-		${2}
+		if(res)console.log("Collection[$1]");
+		${0:}
 	});
 snippet mgdbcnt
 	mongo_client.connect('mongodb://${1:localhost}/${2:collection}');
 snippet mgfind
 	${1:Model}.find({ ${2:}  }).all(function(${3:results}){
-		${4:}
+		${0:}
 	});
 snippet mgmodel
 	mongoose.model('${1:Model}', {
