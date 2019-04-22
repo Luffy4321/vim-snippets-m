@@ -91,4 +91,14 @@ snippet case_enum
 	${1:/* value */}: begin
 		${2}
 	end
-
+snippet inc
+	\`include "${1:dv_com_board.v}"
+snippet once
+	\`ifndef ${1:`toupper(vim_snippets#Filename('$1_V', 'UNTITLED_V'))`}
+	\`define $1
+	${0}
+	\`endif /* end of include guard: $1 */
+snippet def
+	\`define ${1}
+snippet d
+	\`${_DEFINE_VAL}
