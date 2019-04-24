@@ -53,8 +53,8 @@ snippet casez
 	endcase
 # Always block
 snippet al
-	always @(${1: posedge clk or negedge rst_n}) begin
-		if(~rst_n) begin
+	always @( posedge ${1:}_clk or negedge $1_rst_n}) begin
+		if(~$1_rst_n) begin
 			${2}
 		end
 		else if (${3:/*sens param list*/}) begin
@@ -63,10 +63,10 @@ snippet al
 	end
 # Module block
 snippet moddef
-	module ${1:module_name}(clk,rst_n,${2:/*param list*/});
-	input           clk;            //系统时钟
-	input           rst_n;          //复位
-	${3}
+	module ${1:module_name}(${2:}_clk,$2_rst_n,${3:/*param list*/});
+	input           $2_clk;            //系统时钟
+	input           $2_rst_n;          //复位
+	${0}
 	
 	//输出端口reg显性声明
 	reg ${4:/*val;*/}
