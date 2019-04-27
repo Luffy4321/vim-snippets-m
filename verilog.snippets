@@ -1,0 +1,107 @@
+# if statement
+snippet if
+	if (${1}) begin
+		${0}
+	end
+# If/else statements
+snippet ife
+	if (${1}) begin
+		${2}
+	end
+	else begin
+		${3}
+	end
+# Else if statement
+snippet eif
+	else if (${1}) begin
+		${0}
+	end
+#Else statement
+snippet el
+	else begin
+		${0}
+	end
+# While statement
+snippet wh
+	while (${1}) begin
+		${0}
+	end
+# Repeat Loop
+snippet rep
+	repeat (${1}) begin
+		${0}
+	end
+# Case statement
+snippet case
+	case (${1:/* variable */})
+		${2:/* value */}: begin
+			${3}
+		end
+		default: begin
+			${4}
+		end
+	endcase
+# CaseZ statement
+snippet casez
+	casez (${1:/* variable */})
+		${2:/* value */}: begin
+			${3}
+		end
+		default: begin
+			${4}
+		end
+	endcase
+# Always block
+snippet al
+	always @( posedge ${1:/*prefix*/}_clk or negedge $1_rst_n) begin
+		if(~$1_rst_n) begin
+			${2}
+		end
+		else if (${3:/*sens param list*/}) begin
+			${0}
+		end
+	end
+# Module block
+snippet moddef
+	\`ifndef _USE_DEF_TIMESCALE
+	\`timescale 1ns/1ps
+	\`endif
+	module ${1:module_name}(${2:}_clk,$2_rst_n,${3:/*param list*/});
+	input           $2_clk;            //系统时钟
+	input           $2_rst_n;          //复位
+	${0}
+	
+	//输出端口reg显性声明
+	reg ${4:/*val;*/}
+	
+	//模块内部定义
+	reg ${5:/*val;*/}
+	endmodule
+snippet init
+	initial
+	begin
+		${0}
+	end
+# else if else
+snippet eife
+	else if (${1}) begin
+		${2}
+	end
+	else begin
+		${0}
+	end
+snippet case_enum
+	${1:/* value */}: begin
+		${2}
+	end
+snippet inc
+	\`include "${1:dv_com_board.v}"
+snippet once
+	\`ifndef ${1:`toupper(vim_snippets#Filename('$1_V', 'UNTITLED_V'))`}
+	\`define $1
+	${0}
+	\`endif /* end of include guard: $1 */
+snippet def
+	\`define ${1}
+snippet d
+	\`${0:_DEFINE_VAL}
