@@ -137,11 +137,13 @@ snippet pullquote
 	${1:text} {" ${2:quote} "} ${0:text}
 	{% endpullquote %}
 
-snippet img
-	</div align="center">
-	<img src=${1:URL} width=${3:360}>
+snippet im
+	<div align="center">
+	<img src="${1:URL}" width=${3:360}>
 	</div>
 
+snippet font
+	<font color=${1:red}>${2:/*添加文本内容*/}</font>
 snippet t1
 	<span id="$1">
 	# ${1:<!--一级标题-->}
@@ -156,3 +158,5 @@ snippet t3
 	### ${1:<!--三级标题-->}
 	</span>
 
+snippet 2sp
+	&#160; &#160; &#160; &#160;${0:<!--缩进后的内容-->}

@@ -138,12 +138,12 @@ snippet clog
 snippet mgdbConnect
 	mongo_client.connect(url,{${1:useNewUrlParser:true}},function(err,db){
 		if(err) throw err;
-		console.log("mongoDB[${2:db_fun}] created");
+		console.log("mongoDB connected");
 		${3:}
 		db.close();
 	});
 snippet mgdbUrl
-	var url = "mongodb://localhost:27017/${1:db_fun}";
+	var url = "mongodb://${1:localhost}:${2:27017}/${3:db_name}";
 snippet mgdbCreateCollection
 	var dbo = db.db("${1:db}");
 	dbo.createCollection('${2:collection_name}',function(err,res){
@@ -165,7 +165,7 @@ snippet mgdbInsertMany
 	];
 	dbo.collection("${1:collection_name}").insertMany($2,function(err,res){
 		if(err) throw err;
-		console.log("Collection[$1] insert count + res.insertedCount);
+		console.log("Collection[$1] insert count + res.insertedCount");
 		${0:}
 	});
 snippet mgdbFind
@@ -250,7 +250,7 @@ snippet reqpath
 	require.paths.unshift(${1:__dirname}${2:+'/lib/'});
 snippet reqsys
 	var sys =require('sys');
-snippet ep
+snippet reqep
 	var express =require('express');
 	var app=express();
 snippet reqvows
